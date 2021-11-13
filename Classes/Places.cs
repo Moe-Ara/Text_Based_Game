@@ -1,57 +1,59 @@
 using System;
-using item.cs;
 using System.Collections.Generic;
+using TextBasedGame;
+namespace TextBasedGame{
 class Place {
-    private String CurrentPlace;
+    private String PlaceName;
     private String PlaceToNorth;
     private String PlaceToSouth;
     private String PlaceToEast;
     private String PlaceToWest;
     private String Description;
-    protected HashSet<item> itemsInPlace;
-    public Place (String CurrentPlace, String PlaceToNorth, String PlaceToSouth,String PlaceToEast,String PlaceToWest){
-        this.CurrentPlace= CurrentPlace;
+    protected HashSet<Item> itemsInPlace;
+    public Place (String PlaceName, String PlaceToNorth, String PlaceToSouth,String PlaceToEast,String PlaceToWest){
+        this.PlaceName= PlaceName;
         this.PlaceToNorth= PlaceToNorth;
         this.PlaceToSouth= PlaceToSouth;
         this.PlaceToEast= PlaceToEast;
         this .PlaceToWest= PlaceToWest;
+        this.itemsInPlace= new HashSet<Item>();
     }
 
-    String getCurrentPlace(){
-        return CurrentPlace;
+   public String getPlaceName(){
+        return PlaceName;
     }
-    String getPlaceToNorth(){
+   public String getPlaceToNorth(){
         return PlaceToNorth;
     }
-    String getPlaceToSouth(){
+    public String getPlaceToSouth(){
         return PlaceToSouth;
     }
-    String getPlaceToEast(){
+    public String getPlaceToEast(){
         return PlaceToEast;
     }
-    String getPlaceToWest(){
+    public String getPlaceToWest(){
         return PlaceToWest;
     }
-    String getDescription(){
+    public String getDescription(){
         return Description;
     }
-    void setDescription(String desc){
+    public void setDescription(String desc){
         this.Description=desc;
     }
-    bool hasNorth(){
-        return (getPlaceToNorth!="");
+   public bool hasNorth(){
+        return !(PlaceToNorth.Equals(""));
     }
-    bool hasSouth(){
-        return(getPlaceToSouth!="");
+   public bool hasSouth(){
+        return !(PlaceToSouth.Equals(""));
     }
-    bool hasEast(){
-        return(getPlaceToEast!="");
+   public bool hasEast(){
+        return !(PlaceToEast.Equals(""));
     }
-    bool hasWest(){
-        return(getPlaceToWest!="");
+   public bool hasWest(){
+        return !(PlaceToWest.Equals(""));
     }
     //adds items to place
-    void addItemToPlace(item item){
+   public void addItemToPlace(Item item){
         try{
         itemsInPlace.Add(item);}
         catch (Exception e){
@@ -59,11 +61,11 @@ class Place {
         }
     }
     //checks if an item exists in current place
-    void checkItemIsHere(item item){
+   public bool checkItemIsHere(Item item){
         return itemsInPlace.Contains(item);
     }
     //removes an item form current place
-    void removeItemFromPlace(item item){
+   public void removeItemFromPlace(Item item){
         if (checkItemIsHere(item)){
             itemsInPlace.Remove(item);
         }else{
@@ -73,4 +75,4 @@ class Place {
 
 
 
-}
+}}
