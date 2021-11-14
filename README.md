@@ -5,5 +5,5 @@ This is Just a Personal Project that is being developed for the purpose of learn
 # ScreenShots
 **When You Run the Game**
 
-<img src="Pics\Welcoming Screen.png" width=50% height=50% ></img>
+<img src="Pics\Welcoming Screen.png" width=70% height=70% ></img>
 
