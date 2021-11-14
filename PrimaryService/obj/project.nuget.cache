@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aoWB/qtGQDDcTCktzRdPp8w0onJrybz274lClC2iRinoeiVf0xKDD0K6teCVw2/J1/VLP9lT0C0h0tJjTpW4hQ==",
+  "dgSpecHash": "Mky3qAc644Rq9m9Pt5rPoEtLXN9Cd+Aq7S7A2SK4Jlgp+Eq2J1rfHkw6h4GPUF4FIEIAasnOPeGEZ+mBTL5r8g==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService\\TextBasedGame.csproj",
+  "projectFilePath": "C:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService\\TextBasedGame.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
