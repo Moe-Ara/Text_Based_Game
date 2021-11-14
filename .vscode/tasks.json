@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/PrimaryService.Test/PrimaryService.Test.csproj",
+                "${workspaceFolder}/ConsoleApp1.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/PrimaryService.Test/PrimaryService.Test.csproj",
+                "${workspaceFolder}/ConsoleApp1.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/PrimaryService.Test/PrimaryService.Test.csproj",
+                "${workspaceFolder}/ConsoleApp1.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

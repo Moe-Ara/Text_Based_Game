@@ -4976,11 +4976,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService.Test\\PrimaryService.Test.csproj",
+      "projectUniqueName": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService.Test\\PrimaryService.Test.csproj",
       "projectName": "PrimaryService.Test",
-      "projectPath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService.Test\\PrimaryService.Test.csproj",
+      "projectPath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService.Test\\PrimaryService.Test.csproj",
       "packagesPath": "C:\\Users\\Mohamad\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService.Test\\obj\\",
+      "outputPath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5003,8 +5003,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "c:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService\\TextBasedGame.csproj": {
-              "projectPath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService\\TextBasedGame.csproj"
+            "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService\\TextBasedGame.csproj": {
+              "projectPath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService\\TextBasedGame.csproj"
             }
           }
         }

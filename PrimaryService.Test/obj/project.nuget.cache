@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0WuJgzswPw9p4MzNlcyyt+p5OrQi5TPyehNbTjcKZ+nksHippeqOzLVStDmL/9o+CZqwW4pVAvvfUq0+k+XFBQ==",
+  "dgSpecHash": "HUWgbLd2HezjnjrinyIte/tcC9Z7YQHZaY9tTF0H6dDseTlfqecV9QlNz3DMg4ROgFRxvQT4Shaz34NrkGCLCg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService.Test\\PrimaryService.Test.csproj",
+  "projectFilePath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService.Test\\PrimaryService.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mohamad\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Mohamad\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

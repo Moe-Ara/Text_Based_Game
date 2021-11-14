@@ -6,7 +6,11 @@ namespace TextBasedGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.Clear();
+            Console.WriteLine("\n");
+            WelcomingPlayer welcomingPlayer = new WelcomingPlayer();
+            Player player = welcomingPlayer._player;
+            Map initMap = welcomingPlayer._IntializedMap;
         }
     }
 }

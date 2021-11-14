@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService\\TextBasedGame.csproj": {}
+    "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService\\TextBasedGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService\\TextBasedGame.csproj": {
+    "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService\\TextBasedGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService\\TextBasedGame.csproj",
+        "projectUniqueName": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService\\TextBasedGame.csproj",
         "projectName": "TextBasedGame",
-        "projectPath": "C:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService\\TextBasedGame.csproj",
+        "projectPath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService\\TextBasedGame.csproj",
         "packagesPath": "C:\\Users\\Mohamad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mohamad\\vsCode\\CSharp\\TextBasedGame\\PrimaryService\\obj\\",
+        "outputPath": "c:\\Users\\Mohamad\\vsCode\\CSharp\\TBG\\PrimaryService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
