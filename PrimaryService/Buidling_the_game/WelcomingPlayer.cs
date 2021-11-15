@@ -8,9 +8,9 @@ namespace TextBasedGame
         private Map _IntializedMap;
         private Player _Player;
         private String _WelcomingMessage = "Welcome Player, This is our humble little Project that we are proud to present to you in this Form\n" +
-        "This Game is dedicated to my Friends who have supported me, Unborn Children who have been my biggest source of motivation and to my Mother who has always believed in me, even when I didn't" +
+        "This Game is dedicated to my Friends who always support me, Unborn Children who have been my biggest source of motivation and to my Mother who always believes in me, even when I don't" +
         "\n══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════ \n" +
-        "But, enough about me now; tell us about yourself Player";
+        "But, enough about me for now;\nTell us about yourself Player";
 
         public WelcomingPlayer()
         {
@@ -29,7 +29,7 @@ namespace TextBasedGame
                 }
                 UserName= char.ToUpper(UserName[0])+UserName.Substring(1);
                 Console.WriteLine($"Do You want us to call you {UserName} [default:yes]\n");
-                Response = Console.ReadLine().ToLower();
+                Response = _GetUserInput.getUserInput().ToLower();
                 //check if user didn't enter any input
                 if(String.IsNullOrEmpty(Response)){
                     Response="yes";
