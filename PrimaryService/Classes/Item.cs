@@ -9,7 +9,7 @@ namespace TextBasedGame
         private String description; //description of the item
         private bool isPickable; //if the item is pickable; in case it is an asset, it is not
 
-        public Item(String itemName, String colour = "", String description = "", bool isPickable = false)
+        public Item(String itemName, String colour = "", String description = "", bool isPickable = true)
         {
             this.itemName = itemName;
             this.description = description;
@@ -40,6 +40,9 @@ namespace TextBasedGame
         {
             this.colour = colour;
         }
+        public void setItemName (String itemName){
+            this.itemName=itemName;
+         }
         public bool hasDescription()
         {
             return !(description.Equals(""));
