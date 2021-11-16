@@ -9,6 +9,7 @@ namespace TextBasedGame
         private String name; //player's name
         private String sex; //player's sex
         private String Description; //player's Description (appearance)
+        private Place MyOldPlace; //to be able to go back
         private Place MyCurrentPlace; //Player's current place
         protected HashSet<Item> inventory; //player's inventory
 
@@ -68,6 +69,8 @@ namespace TextBasedGame
         public bool itemIsInInvenory(Item item){
             return inventory.Contains(item);
         }
+
+        public Place _MyOldPlace { get{return MyOldPlace;} set{MyOldPlace =value;} }
 
 
     }
