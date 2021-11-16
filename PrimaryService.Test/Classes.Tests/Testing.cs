@@ -64,5 +64,25 @@ namespace PrimaryService.Test
             _path=null;
         }
 
+        [Test]
+        public void TestContainerItem(){
+            ContianerItem letter= new ContianerItem("Letter", "Old and wrinkled", "Yeeehawww",true);
+            Box box = new Box("Big box","Heavy and old");
+            Item malet= new Item("Malet","silver","Heavy af",false);
+    
+            box.addContents(malet);
+            box.addContents(letter);
+            box.pickItem(letter);
+            box.pickItem(malet);
+
+            Assert.IsTrue(box.contains(malet));
+            Assert.IsFalse(box.contains(letter));
+            Assert.AreEqual("Yeeehawww",letter.Contents);
+
+            
+
+
+        }
+
     }
 }

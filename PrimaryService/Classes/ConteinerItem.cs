@@ -6,10 +6,10 @@ namespace TextBasedGame{
         private String _Contentes;
 
         public ContianerItem(String ItemName, String Description, String Contents, bool Pickable=true): base(ItemName,"",Description,Pickable){
-            this._Contentes=Contentes;
+            this._Contentes=Contents;
         }
 
-        public String Contentes { get{return _Contentes;} set{_Contentes=value;} }
+        public String  Contents { get{return _Contentes;} set{_Contentes=value;} }
     }
     public class Box : ContianerItem{
         private HashSet<Item> _Contents;
@@ -17,7 +17,7 @@ namespace TextBasedGame{
 
         }
 
-        public HashSet<Item> Contents {
+        public new HashSet<Item> Contents {
          get{
              return Contents;
          }
@@ -38,5 +38,13 @@ namespace TextBasedGame{
         public void removeContents(Item item){
             Contents.Remove(item);
         }
+        public void pickItem(Item item){
+            if (item.getIsPickable())
+                removeContents(item);
+        }
+
+        public Boolean contains(Item item){
+            return Contents.Contains(item);
+        } 
     }
 }

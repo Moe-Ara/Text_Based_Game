@@ -7,9 +7,9 @@ namespace TextBasedGame
         private GetUserInput _GetUserInput;
         private Map _IntializedMap;
         private Player _Player;
-        private String _WelcomingMessage = "Greetings fellow player, behold our new Text-based adventure,"
-                + " we hope that you are ready and as excited as we are to try it out"
-                + "\nthis game is biggner-friendly so don't worry if it's your first time (that's what she said ;p )"
+        private String _WelcomingMessage = "Greetings fellow player. Behold our new Text-based adventure."
+                + " We hope that you are ready and as excited as we are to try it out"
+                + "\nThis game is biggner-friendly so don't worry if it's your first time (that's what she said ;p) "
                 + "you can always type help to get help ;). Good Luck\n" +
         "This Game is dedicated to my Friends who have always supported me, Unborn Children who have been my biggest source of motivation and to my Mother who always believes in me, even when I don't" +
         "\n══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════ \n" +
