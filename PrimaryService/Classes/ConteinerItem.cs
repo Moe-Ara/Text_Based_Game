@@ -17,15 +17,16 @@ namespace TextBasedGame{
 
         }
 
-        public new HashSet<Item> Contents {
+        public HashSet<Item> Contents {
          get{
-             return Contents;
+
+             return _Contents;
          }
-         set{Contents =value;} 
+         set{_Contents =value;} 
          }
         public String PrintContents (){
              String contents= " ";
-             foreach (Item x in Contents){
+             foreach (Item x in _Contents){
                  contents += x.getItemName() + "; ";
                  contents.Remove(contents.Length-1);
              }
@@ -33,10 +34,11 @@ namespace TextBasedGame{
 
              }
         public void addContents (Item item){
-            Contents.Add(item);
+            if (item!=null)
+                _Contents.Add(item);
         }
         public void removeContents(Item item){
-            Contents.Remove(item);
+            _Contents.Remove(item);
         }
         public void pickItem(Item item){
             if (item.getIsPickable())
@@ -44,7 +46,7 @@ namespace TextBasedGame{
         }
 
         public Boolean contains(Item item){
-            return Contents.Contains(item);
+            return _Contents.Contains(item);
         } 
     }
 }

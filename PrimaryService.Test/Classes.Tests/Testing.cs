@@ -56,20 +56,23 @@ namespace PrimaryService.Test
             Assert.AreEqual(_place, _path.getLastPlace());
             _path.RemoveLast();
             Assert.AreEqual(_place, _path.getLastPlace());
-            int i=0;
-            for (i=0; i< 100; i++){
+            int i = 0;
+            for (i = 0; i < 100; i++)
+            {
                 _path.AddAtLast(_place);
             }
-            Assert.AreEqual(_path.getCount(),i+1);
-            _path=null;
+            Assert.AreEqual(_path.getCount(), i + 1);
+            _path = null;
         }
 
         [Test]
-        public void TestContainerItem(){
-            ContianerItem letter= new ContianerItem("Letter", "Old and wrinkled", "Yeeehawww",true);
-            Box box = new Box("Big box","Heavy and old");
-            Item malet= new Item("Malet","silver","Heavy af",false);
-    
+        public void TestContainerItem()
+        {
+            ContianerItem letter = new ContianerItem("Letter", "Old and wrinkled", "Yeeehawww", true);
+            Box box = new Box("Big box", "Heavy and old");
+            Item malet = new Item("Malet", "silver", "Heavy af", false);
+            Assert.IsFalse(malet==null);
+            Assert.IsFalse(letter==null);
             box.addContents(malet);
             box.addContents(letter);
             box.pickItem(letter);
@@ -77,11 +80,7 @@ namespace PrimaryService.Test
 
             Assert.IsTrue(box.contains(malet));
             Assert.IsFalse(box.contains(letter));
-            Assert.AreEqual("Yeeehawww",letter.Contents);
-
-            
-
-
+            Assert.AreEqual("Yeeehawww", letter.Contents);
         }
 
     }
