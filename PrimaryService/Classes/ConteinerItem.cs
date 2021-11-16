@@ -35,5 +35,8 @@ namespace TextBasedGame{
         public void addContents (Item item){
             Contents.Add(item);
         }
+        public void removeContents(Item item){
+            Contents.Remove(item);
+        }
     }
 }
