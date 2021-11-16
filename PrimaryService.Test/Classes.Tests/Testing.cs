@@ -15,7 +15,7 @@ namespace PrimaryService.Test
         {
             _item = new Item("Sword", "", "", true);
             string PlaceDesc = "big house";
-            _place = new Place("House", "Yard", "Shed", "Main Street", "", PlaceDesc, $"You enter A {PlaceDesc}");
+            _place = new Place("House", null, null, null, null, PlaceDesc, $"You enter A {PlaceDesc}");
             _player = new Player("So3ad", "Female", "Black Hair", _place);
         }
 
@@ -46,7 +46,7 @@ namespace PrimaryService.Test
         [Test]
         public void TestPath()
         {
-            Place _place2 = new Place("House", "Yard", "Shed", "Main Street", "", "", "");
+            Place _place2 = new Place("House", null, null, null, null, "", "");
             _path = new Path();
             _path.AddAtLast(_place);
             Assert.AreEqual(_place, _path.getLastPlace());
