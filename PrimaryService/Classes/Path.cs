@@ -8,35 +8,47 @@ namespace TextBasedGame
     internal class Node
     {
         internal Node next;
-        internal Place Data;
+        internal Place Data; //using internal keyword so we don't have to initialize an object that references this class in class path
     }
 
     public class Path
     {
 
-        internal Node head;
-        private Node current;
-        public int index;
+        internal Node head;//first node
+        public int Count;//count of nodes
 
         public Path()
         {
-            head = new Node();
-            current = head;
-
         }
 
         public void AddAtLast(Place data)
         {
+            //we create a new node with inserted data 
             Node newNode = new Node();
             newNode.Data = data;
-            current.next = newNode;
-            current = newNode;
-            index++;
+            //check if the list is empty
+            if (head == null)
+            {
+                head = newNode;//then insert the new node in the head of the list
+                Count++;
+                return;
+            }
+            Node lastNode = head;
+            //traverse till we get the last node
+            while (lastNode.next!=null){
+                lastNode=lastNode.next;
+            }
+            lastNode.next = newNode;//add the inserted node after the last node
+            Count++;
         }
         public void PrintAll()
         {
             Console.Write("Head ->");
             Node curr = head;
+            if(curr.next==null){
+                Console.Write(curr.Data);
+                Console.Write("->");
+            }
             while (curr.next != null)
             {
                 curr = curr.next;
@@ -47,21 +59,25 @@ namespace TextBasedGame
         }
         public void RemoveLast()
         {
-            Node curr = head;
-            //traverse until you find the last node
-            while (curr.next.next != null)
+            Node node = head;
+            Node oldNode = node;
+            if (head == null)
             {
-                curr = curr.next;
-            }
-            //if they are at the start
-            if (curr.next == null)
-            {
-                Console.WriteLine("You can't go back any further");
                 return;
             }
-            curr.next = null;
+            if (head.next == null)
+            {
+                Console.WriteLine("\nYou can't go back anymore");
+                return;
+            }
+            while(node.next!=null){
+                oldNode=node;
+                node=node.next;
+            }
+            oldNode.next=null;
+            Count--;
         }
-        public Place getLast()
+        public Place getLastPlace()
         {
             Node curr = head;
             while (curr.next != null)
@@ -69,6 +85,10 @@ namespace TextBasedGame
                 curr = curr.next;
             }
             return curr.Data;
+        }
+        public int getCount()
+        {
+            return Count;
         }
 
     }
