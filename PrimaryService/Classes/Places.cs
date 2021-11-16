@@ -7,31 +7,45 @@ namespace TextBasedGame
     {
         //this class is to define a place
         private String PlaceName; //the name of the Place 
-        private String PlaceToNorth; //the Name of the place north to it
-        private String PlaceToSouth;
-        private String PlaceToEast;
-        private String PlaceToWest;
-        private String PlaceUp;
-        private String PlaceDown;
+        private Place PlaceToNorth; //the Name of the place north to it
+        private Place PlaceToSouth;
+        private Place PlaceToEast;
+        private Place PlaceToWest;
+        private Place PlaceToNorthEast;
+        private Place PlaceToSouthEast;
+        private Place PlaceToSouthWest;
+        private Place PlaceToNorthWest;
+        private Place PlaceUp;
+        private Place PlaceDown;
         private String Description; //description of the place
         private String EventDescription; //this is used for when want to set the scene; for example: "You enter a Shed that is $Description", "You see a house with ... $Description"
         protected HashSet<Item> itemsInPlace; //items that are present in the place, these can be assets as well; eg: car,grass,rock
         protected HashSet<Place> ReachablePlaces;// Places that are reachable from this place
-        public Place(String PlaceName, String PlaceToNorth, String PlaceToSouth, String PlaceToEast,
-        String PlaceToWest, String Description,
-        String EventDescription, String PlaceUp = "", String PlaceDown = "")
+        public Place(String PlaceName, Place PlaceToNorth, Place PlaceToSouth, Place PlaceToEast,
+        Place PlaceToWest, String Description,
+        String EventDescription, Place PlaceUp = null, Place PlaceDown = null,
+        Place PlaceToNorthEast = null, Place PlaceToSouthEast = null, Place PlaceToSouthWest = null, Place PlaceToNorthWest = null)
         {
             this.PlaceName = PlaceName;
+
             this.PlaceToNorth = PlaceToNorth;
             this.PlaceToSouth = PlaceToSouth;
             this.PlaceToEast = PlaceToEast;
             this.PlaceToWest = PlaceToWest;
+
+            this.PlaceToNorthEast = PlaceToNorthEast;
+            this.PlaceToSouthEast = PlaceToSouthEast;
+            this.PlaceToSouthWest = PlaceToSouthWest;
+            this.PlaceToNorthWest = PlaceToNorthWest;
+
             this.Description = Description;
             this.EventDescription = EventDescription;
+
             this.PlaceUp = PlaceUp;
             this.PlaceDown = PlaceDown;
+
             this.itemsInPlace = new HashSet<Item>();
-            this.ReachablePlaces= new HashSet<Place>();
+            this.ReachablePlaces = new HashSet<Place>();
         }
 
         //gets the name of the place
@@ -40,25 +54,25 @@ namespace TextBasedGame
             return PlaceName;
         }
         //gets the name of the place to north
-        public String getPlaceToNorth()
+        public Place getPlaceToNorth()
         {
             return PlaceToNorth;
         }
         //gets the name of the place to south
-        public String getPlaceToSouth()
+        public Place getPlaceToSouth()
         {
             return PlaceToSouth;
         }
         //gets the name of the place to east
 
-        public String getPlaceToEast()
+        public Place getPlaceToEast()
         {
             return PlaceToEast;
         }
 
         //gets the name of the place to west
 
-        public String getPlaceToWest()
+        public Place getPlaceToWest()
         {
             return PlaceToWest;
         }
@@ -78,30 +92,51 @@ namespace TextBasedGame
         }
         public bool hasNorth()
         {
-            return !(PlaceToNorth.Equals(""));
+            return !(PlaceToNorth==null);
         }
         public bool hasSouth()
         {
-            return !(PlaceToSouth.Equals(""));
+            return !(PlaceToSouth==null);
         }
         public bool hasEast()
         {
-            return !(PlaceToEast.Equals(""));
+            return !(PlaceToEast==null);
         }
         public bool hasWest()
         {
-            return !(PlaceToWest.Equals(""));
+            return !(PlaceToWest==null);
+
         }
-         public bool hasUp()
+
+        public bool hasNorthEast()
         {
-            return !(PlaceUp.Equals(""));
+            return !(PlaceToNorthEast==null);
         }
-         public bool hasDown()
+        public bool hasSouthEast()
         {
-            return !(PlaceDown.Equals(""));
+            return !(PlaceToSouthEast==null);
+        }
+        public bool hasNorthWest()
+        {
+            return !(PlaceToNorthWest==null);
+        }
+        public bool hasSouthWest()
+        {
+            return !(PlaceToSouthWest==null);
+        }
+
+
+        public bool hasUp()
+        {
+            return !(PlaceUp==null);
+        }
+        public bool hasDown()
+        {
+            return !(PlaceDown==null);
         }
         //prints out all Places that are reachable from this place
-        public String getReachablePlaces(){
+        public String getReachablePlaces()
+        {
             String reachablePlaces = "";
             foreach (Place x in ReachablePlaces)
             {
@@ -111,7 +146,8 @@ namespace TextBasedGame
             }
             return reachablePlaces;
         }
-        public void setReachablePlaces(Place place){
+        public void setReachablePlaces(Place place)
+        {
             ReachablePlaces.Add(place);
         }
         //adds items to place
@@ -128,7 +164,8 @@ namespace TextBasedGame
         }
 
         //checks if a specific place(in parameter) is reachable from this place
-        public bool isParmPlaceReachable(Place place){
+        public bool isParmPlaceReachable(Place place)
+        {
             return ReachablePlaces.Contains(place);
         }
         //checks if an item exists in current place
@@ -151,5 +188,9 @@ namespace TextBasedGame
 
 
 
+        public Place _PlaceToNorthEast { get{return PlaceToNorthEast;} set{PlaceToNorthEast=value;} }
+        public Place _PlaceToSouthEast { get{return PlaceToSouthEast;} set{PlaceToSouthEast=value;} }
+        public Place _PlaceToSouthWest { get{return PlaceToSouthWest;} set{PlaceToSouthWest=value;} }
+        public Place _PlaceToNorthWest { get{return PlaceToNorthWest;} set{PlaceToNorthWest=value;} }
     }
 }
