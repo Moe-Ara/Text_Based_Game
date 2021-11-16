@@ -2,6 +2,7 @@ using System;
 namespace TextBasedGame
 {
 
+//~dasd
     /*
     * This class inherits everything from class item
     * It has two extra attributes, AssetName and AssetDescription

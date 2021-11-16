@@ -6,7 +6,7 @@ namespace TextBasedGame
     public class Command
     {
         private String command; //the command itself
-        private HashSet<String> Abbreviation; //abbreviation of command
+        private HashSet<String> Abbreviation=new HashSet<string>(); //abbreviation of command
         //private HashSet<String> Args; //argumanets to a command
         private String Help; //Description of What Command Can Do
         public Command(String _Command, HashSet<String> _Abbreviation, String Help)

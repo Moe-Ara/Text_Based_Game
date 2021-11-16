@@ -8,7 +8,6 @@ namespace TextBasedGame
         private String colour; //colour of the item
         private String description; //description of the item
         private bool isPickable; //if the item is pickable; in case it is an asset, it is not
-
         public Item(String itemName, String colour = "", String description = "", bool isPickable = true)
         {
             this.itemName = itemName;

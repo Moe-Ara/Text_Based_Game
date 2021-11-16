@@ -10,9 +10,11 @@ namespace PrimaryService.Test
         private Player _player;
         private Place _place;
         private Item _item;
+
         [SetUp]
         public void Setup()
         {
+            
             _item = new Item("Sword", "", "", true);
             string PlaceDesc = "big house";
             _place = new Place("House", null, null, null, null, PlaceDesc, $"You enter A {PlaceDesc}");
@@ -68,18 +70,18 @@ namespace PrimaryService.Test
         [Test]
         public void TestContainerItem()
         {
+            Box b = new Box("Big box", "Heavy and old");
             ContianerItem letter = new ContianerItem("Letter", "Old and wrinkled", "Yeeehawww", true);
-            Box box = new Box("Big box", "Heavy and old");
             Item malet = new Item("Malet", "silver", "Heavy af", false);
-            Assert.IsFalse(malet==null);
-            Assert.IsFalse(letter==null);
-            box.addContents(malet);
-            box.addContents(letter);
-            box.pickItem(letter);
-            box.pickItem(malet);
+            Assert.IsFalse(malet == null);
+            Assert.IsFalse(letter == null);
+            b.addContents(malet);
+            b.addContents(letter);
+            b.pickItem(letter);
+            b.pickItem(malet);
 
-            Assert.IsTrue(box.contains(malet));
-            Assert.IsFalse(box.contains(letter));
+            Assert.IsTrue(b.contains(malet));
+            Assert.IsFalse(b.contains(letter));
             Assert.AreEqual("Yeeehawww", letter.Contents);
         }
 

@@ -14,10 +14,10 @@ namespace TextBasedGame{
     public class Box : ContianerItem{
         private HashSet<Item> _Contents;
         public Box(String ItemName, String Description, bool Pickable =false):base(ItemName, Description," ", Pickable){
-
+            _Contents = new HashSet<Item>();
         }
 
-        public HashSet<Item> Contents {
+        public HashSet<Item> getContents {
          get{
 
              return _Contents;

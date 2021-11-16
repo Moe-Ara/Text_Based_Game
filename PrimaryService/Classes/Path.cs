@@ -17,9 +17,10 @@ namespace TextBasedGame
         internal Node head;//first node
         public int Count;//count of nodes
 
+        //default constructor
         public Path()
         {
-        }
+        } 
 
         public void AddAtLast(Place data)
         {
@@ -35,17 +36,20 @@ namespace TextBasedGame
             }
             Node lastNode = head;
             //traverse till we get the last node
-            while (lastNode.next!=null){
-                lastNode=lastNode.next;
+            while (lastNode.next != null)
+            {
+                lastNode = lastNode.next;
             }
             lastNode.next = newNode;//add the inserted node after the last node
             Count++;
         }
+        //Prints everything inside the List
         public void PrintAll()
         {
-            Console.Write("Head ->");
             Node curr = head;
-            if(curr.next==null){
+            Console.Write($"Head -> {curr.Data}");
+            if (curr.next == null)
+            {
                 Console.Write(curr.Data);
                 Console.Write("->");
             }
@@ -57,6 +61,8 @@ namespace TextBasedGame
             }
             Console.Write("NULL");
         }
+        //removes last node unless it's the head node
+        //the List can never be empty
         public void RemoveLast()
         {
             Node node = head;
@@ -70,13 +76,15 @@ namespace TextBasedGame
                 Console.WriteLine("\nYou can't go back anymore");
                 return;
             }
-            while(node.next!=null){
-                oldNode=node;
-                node=node.next;
+            while (node.next != null)
+            {
+                oldNode = node;
+                node = node.next;
             }
-            oldNode.next=null;
+            oldNode.next = null;
             Count--;
         }
+        //gets last node's Data
         public Place getLastPlace()
         {
             Node curr = head;
@@ -86,6 +94,7 @@ namespace TextBasedGame
             }
             return curr.Data;
         }
+        //gets how many nodes are there
         public int getCount()
         {
             return Count;

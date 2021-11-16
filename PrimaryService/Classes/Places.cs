@@ -7,7 +7,8 @@ namespace TextBasedGame
     {
         //this class is to define a place
         private String PlaceName; //the name of the Place 
-        private Place PlaceToNorth; //the Name of the place north to it
+        //Directions
+        private Place PlaceToNorth; //the place north to current place, if it doesn't have any, it should be null
         private Place PlaceToSouth;
         private Place PlaceToEast;
         private Place PlaceToWest;
@@ -17,6 +18,7 @@ namespace TextBasedGame
         private Place PlaceToNorthWest;
         private Place PlaceUp;
         private Place PlaceDown;
+
         private String Description; //description of the place
         private String EventDescription; //this is used for when want to set the scene; for example: "You enter a Shed that is $Description", "You see a house with ... $Description"
         protected HashSet<Item> itemsInPlace; //items that are present in the place, these can be assets as well; eg: car,grass,rock
