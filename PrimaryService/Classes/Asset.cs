@@ -4,7 +4,7 @@ namespace TextBasedGame
 
     /*
     * This class inherits everything from class item
-    * It has two extra parameters, AssetName and AssetDescription
+    * It has two extra attributes, AssetName and AssetDescription
     * When a new Asset is created, this class calls the constructor from  item and creates a new Item with AssetName and AssetDescription
     */
     class Asset : Item{
