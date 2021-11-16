@@ -6,6 +6,7 @@ namespace PrimaryService.Test
     [TestFixture]
     public class Testing
     {
+        private Path _path;
         private Player _player;
         private Place _place;
         private Item _item;
@@ -26,6 +27,7 @@ namespace PrimaryService.Test
             Assert.That(_player.getMycurrentPlaceName, Is.EqualTo(_place.getPlaceName()));
 
         }
+        
         [Test]
         public void TestInventory(){
             StringAssert.Contains("Pocket Knife",_player.printInventory());
@@ -38,6 +40,18 @@ namespace PrimaryService.Test
             //check if player picks up item correctly and if it disappears from current Place
             _player.addToInventory(_item);
             Assert.IsFalse(_player.getMycurrentPlace().checkItemIsHere(_item));
+        }
+        
+        [Test]
+        public void TestPath(){
+            Place _place2 = new Place ("House","Yard","Shed", "Main Street", "","","");
+            _path = new Path();
+            _path.AddAtLast(_place);
+            Assert.AreEqual(_place, _path.getLast());
+            _path.AddAtLast(_place2);
+            Assert.AreEqual(_place2, _path.getLast());
+            _path.RemoveLast();
+            Assert.AreEqual(_place, _path.getLast());
         }
         
     }
