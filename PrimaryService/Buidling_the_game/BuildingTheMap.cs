@@ -17,9 +17,17 @@ namespace TextBasedGame
         protected Place ParentsRoom;
         protected Place ChildrensRoom;
         protected Place Tunnel;
-
+        
         public Map()
         {
+            //setting up the first place which is the starting point; it is called "driveway"
+            TextBasedGame.Start st =new TextBasedGame.Start();
+            st.PlaceToEast=this.FrontLawn;
+            this.Start= new Place(st.PlaceName,null,null,st.PlaceToEast,null,st.PlaceDesc,st.EventDescript);
+
+            
+
+
 
         }
 
