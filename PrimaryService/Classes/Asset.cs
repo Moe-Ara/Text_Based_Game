@@ -11,7 +11,7 @@ namespace TextBasedGame
     class Asset : Item{
         private String AssetName;
         private String AssetDescription;
-        public Asset(String assetName, String assetDescription): base(assetName, "", assetDescription,false){
+        public Asset(String assetName, String assetDescription, String LongDescription=""): base(assetName, "", assetDescription,LongDescription,false){
             this.AssetName= assetName;
             this.AssetDescription= assetDescription;
         }

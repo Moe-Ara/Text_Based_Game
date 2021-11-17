@@ -9,16 +9,14 @@ namespace PrimaryService.Test
         private Path _path;
         private Player _player;
         private Place _place;
-        private Item _item;
-
         [SetUp]
         public void Setup()
         {
-            
-            _item = new Item("Sword", "", "", true);
+            Inventory inventory= new Inventory();
+           
             string PlaceDesc = "big house";
             _place = new Place("House", null, null, null, null, PlaceDesc, $"You enter A {PlaceDesc}");
-            _player = new Player("So3ad", "Female", "Black Hair", _place);
+            _player = new Player("So3ad", "Female", "Black Hair", _place,inventory);
         }
 
         [Test]
@@ -33,15 +31,16 @@ namespace PrimaryService.Test
         [Test]
         public void TestInventory()
         {
-            StringAssert.Contains("Pocket Knife", _player.printInventory());
-            _player.addToInventory(_item);
-            StringAssert.Contains("Sword", _player.printInventory());
+            Item _item = new Item("Sword", "", "","", true);
+            StringAssert.Contains("Pocket Knife", _player.printMyInventory());
+            _player.MyInventory.addItem(_item);
+            StringAssert.Contains("Sword", _player.printMyInventory());
             //check if player drops item correctly and if it appears in current Place
-            _player.dropItemFromInventory(_item);
-            StringAssert.DoesNotContain("Sword", _player.printInventory());
+            _player.removeFromMyInventory(_item);
+            StringAssert.DoesNotContain("Sword", _player.printMyInventory());
             Assert.IsTrue(_player.getMycurrentPlace().checkItemIsHere(_item));
             //check if player picks up item correctly and if it disappears from current Place
-            _player.addToInventory(_item);
+            _player.addtoMyInventory(_item);
             Assert.IsFalse(_player.getMycurrentPlace().checkItemIsHere(_item));
         }
 
@@ -71,8 +70,8 @@ namespace PrimaryService.Test
         public void TestContainerItem()
         {
             Box b = new Box("Big box", "Heavy and old");
-            ContianerItem letter = new ContianerItem("Letter", "Old and wrinkled", "Yeeehawww", true);
-            Item malet = new Item("Malet", "silver", "Heavy af", false);
+            ContianerItem letter = new ContianerItem("Letter", "Old and wrinkled","", "Yeeehawww", true);
+            Item malet = new Item("Malet", "silver", "Heavy af", "",false);
             Assert.IsFalse(malet == null);
             Assert.IsFalse(letter == null);
             b.addContents(malet);
@@ -85,5 +84,25 @@ namespace PrimaryService.Test
             Assert.AreEqual("Yeeehawww", letter.Contents);
         }
 
+
+        // [Test]
+        // public void TestAssets()
+        // {
+        //     Item item1= new Item("Malet", "silver", "Heavy af", false);
+        //     Item item2= new Item("Malet2", "", "", false);
+        //     Item item3= new Item("gallon of gas", "", "", false);
+
+        //     Place _place = new Place("Drive way", null,null,null,null,"Description", "You See Descr");
+        //     Asset car =new Car();
+        //     car.addItems(item1);
+        //     car.addItems(item3);
+        //     car.addItems(item3);
+
+        //     _place.addItemToPlace(car.);
+        //     Player _player= new Player ("moe","female","meh",_place);
+        //     _player.pickItemFromPlace(item1);
+
+
+        // }
     }
 }

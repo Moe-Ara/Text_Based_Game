@@ -6,14 +6,16 @@ namespace TextBasedGame
     {
         private String itemName; //item name
         private String colour; //colour of the item
-        private String description; //description of the item
+        private String shortDescription; //description of the item
+        private String specificDescription;
         private bool isPickable; //if the item is pickable; in case it is an asset, it is not
-        public Item(String itemName, String colour = "", String description = "", bool isPickable = true)
+        public Item(String itemName, String colour = "", String shortDescription = "", String specificDescription="", bool isPickable = true)
         {
             this.itemName = itemName;
-            this.description = description;
+            this.shortDescription = shortDescription;
             this.isPickable = isPickable;
             this.colour = colour;
+            this.specificDescription= specificDescription;
         }
         public String getItemName()
         {
@@ -21,7 +23,7 @@ namespace TextBasedGame
         }
         public String getDescription()
         {
-            return description;
+            return shortDescription;
         }
         public String getColour()
         {
@@ -33,7 +35,7 @@ namespace TextBasedGame
         }
         public void setDescription(String description)
         {
-            this.description = description;
+            this.shortDescription = description;
         }
         public void setColour(String colour)
         {
@@ -42,9 +44,15 @@ namespace TextBasedGame
         public void setItemName (String itemName){
             this.itemName=itemName;
          }
-        public bool hasDescription()
+        public bool hasShortDescription()
         {
-            return !(description.Equals(""));
+            return !(shortDescription.Equals(""));
         }
+          public bool hasLongDescription()
+        {
+            return !(specificDescription.Equals(""));
+        }
+
+        public String LongDescription { get{return specificDescription;} set{specificDescription=value;} }
     }
 }

@@ -11,7 +11,7 @@ namespace TextBasedGame
         {
             inventory = new HashSet<Item>();
             this.inventory.Add(new Item("Pocket Knife", "", "It is small pocket knife with a wooden grip" +
-            ".\nThe blade seems a bit rusty and dull but it is sharp enough to cut through some thin materials", true));
+            ".\nThe blade seems a bit rusty and dull but it is sharp enough to cut through some thin materials",null, true));
         }
         public String printInventory() //print every item in the inventory
         {

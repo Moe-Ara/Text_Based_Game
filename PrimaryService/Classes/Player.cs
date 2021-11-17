@@ -11,18 +11,15 @@ namespace TextBasedGame
         private String Description; //player's Description (appearance)
         private Place MyOldPlace; //to be able to go back
         private Place MyCurrentPlace; //Player's current place
-        protected HashSet<Item> inventory; //player's inventory
+        private Inventory inventory; //player's inventory
 
-        public Player(String name, String sex, String Description, Place MyCurrentPlace)
+        public Player(String name, String sex, String Description, Place MyCurrentPlace, Inventory inventory)
         {
             this.name = name;
             this.sex = sex;
             this.Description = Description;
             this.MyCurrentPlace = MyCurrentPlace;
-            this.inventory = new HashSet<Item>();
-            //we give every player a pocket knife at the start
-            this.inventory.Add(new Item("Pocket Knife", "", "It is small pocket knife with a wooden grip" +
-            ".\nThe blade seems a bit rusty and dull but it is sharp enough to cut through some thin materials", true));
+            this.inventory = inventory;
         }
         public String getName() { return name; } //getter for Player Name
         public String getSex() { return sex; }     //getter for Player's sex
@@ -43,34 +40,35 @@ namespace TextBasedGame
 
 
         //inventory Processes 
-        public String printInventory() //print every item in the inventory
+        public void addtoMyInventory(Item item)
         {
-            String items = "";
-            foreach (Item x in inventory)
+            if (MyCurrentPlace.checkItemIsHere(item))
             {
-                items += x.getItemName() + "; ";
-                //removes the last semicolon
-                items.Remove(items.Length - 1);
+                inventory.addItem(item);
+                MyCurrentPlace.removeItemFromPlace(item);
             }
-            return items;
-        }
-        public void addToInventory(Item item) //add item to inventory
-        {
-            inventory.Add(item);//pick it up
-            MyCurrentPlace.removeItemFromPlace(item); //remove it from current place, because we have picken it up
-        }
-        public void dropItemFromInventory(Item item) //remove item from inventory
-        {
-            inventory.Remove(item); //drop it
-            MyCurrentPlace.addItemToPlace(item); //add to the current place because we have thrown it away, 
-                                                //the player can now pick it up again but from where they droped it 
+            else
+            {
+                Console.WriteLine("There is no such item in this place");
+            }
+
         }
 
-        public bool itemIsInInvenory(Item item){
-            return inventory.Contains(item);
+        public void removeFromMyInventory(Item item)
+        {
+            if (inventory.itemIsInInvenory(item))
+            {
+                MyCurrentPlace.addItemToPlace(item);
+                inventory.removeItem(item);
+            }
         }
 
-        public Place _MyOldPlace { get{return MyOldPlace;} set{MyOldPlace =value;} }
+        public Place _MyOldPlace { get { return MyOldPlace; } set { MyOldPlace = value; } }
+        public String printMyInventory() //print every item in the inventory
+        {
+            return inventory.printInventory();
+        }
+        public Inventory MyInventory { get{return inventory;} set{inventory=value;} }
 
 
     }

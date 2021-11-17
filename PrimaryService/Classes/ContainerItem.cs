@@ -5,7 +5,7 @@ namespace TextBasedGame{
     public class ContianerItem : Item{
         private String _Contentes;
 
-        public ContianerItem(String ItemName, String Description, String Contents, bool Pickable=true): base(ItemName,"",Description,Pickable){
+        public ContianerItem(String ItemName, String shortDescription,String LongDescription="", String Contents="", bool Pickable=true): base(ItemName,"",shortDescription,LongDescription,Pickable){
             this._Contentes=Contents;
         }
 
@@ -13,7 +13,7 @@ namespace TextBasedGame{
     }
     public class Box : ContianerItem{
         private HashSet<Item> _Contents;
-        public Box(String ItemName, String Description, bool Pickable =false):base(ItemName, Description," ", Pickable){
+        public Box(String ItemName, String Description,String LongDescription="", bool Pickable =false):base(ItemName, Description,LongDescription," ", Pickable){
             _Contents = new HashSet<Item>();
         }
 
