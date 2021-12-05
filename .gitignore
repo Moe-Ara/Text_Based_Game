@@ -32,3 +32,4 @@ PrimaryService.Test/bin/Debug/net5.0/TextBasedGame.pdb
 PrimaryService.Test/obj/Debug/net5.0/PrimaryService.Test.csproj.AssemblyReference.cache
 PrimaryService.Test/obj/Debug/net5.0/PrimaryService.Test.dll
 PrimaryService.Test/obj/Debug/net5.0/PrimaryService.Test.pdb
+.vscode/extensions.json
