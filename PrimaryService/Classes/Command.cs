@@ -6,11 +6,12 @@ namespace TextBasedGame
     public class Command
     {
         private String command; //the command itself
-        private HashSet<String> Abbreviation=new HashSet<string>(); //abbreviation of command
+        private String[] Abbreviation; //abbreviation of command
         //private HashSet<String> Args; //argumanets to a command
         private String Help; //Description of What Command Can Do
-        public Command(String _Command, HashSet<String> _Abbreviation, String Help)
+        public Command(String _Command, String[] _Abbreviation, String Help)
         {
+            Abbreviation = new String[_Abbreviation.Length];
             this.command = _Command;
             this.Abbreviation = _Abbreviation;
             this.Help = Help;
@@ -20,16 +21,16 @@ namespace TextBasedGame
         {
             return command;
         }
-        public HashSet<String> getAbbreviation()
+        public String[] getAbbreviation()
         {
             return Abbreviation;
         }
         public String printAbbreviation()
         {
             String Abbreviations = "";
-            foreach (String x in Abbreviation)
-            {
-                Abbreviations += x + "\n";
+            foreach (String x in Abbreviation){
+                Abbreviations+= x + "; ";
+                Abbreviations.Remove(Abbreviations.Length-1);
             }
             return Abbreviations;
 
@@ -46,14 +47,6 @@ namespace TextBasedGame
         public void setCommand(String command)
         {
             this.command = command;
-        }
-        public void addAbbri(String Abbre)
-        {
-            Abbreviation.Add(Abbre);
-        }
-        public void removeAbbri(String Abbre)
-        {
-            Abbreviation.Remove(Abbre);
         }
 
     }
