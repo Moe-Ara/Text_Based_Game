@@ -103,6 +103,13 @@ namespace PrimaryService.Test
         //     _player.pickItemFromPlace(item1);
 
 
-        // }
+        [Test]
+        public void TestCommands(){
+            Commands commands = new Commands();
+            string abrevs= commands.Inspect.printAbbreviation();
+            StringAssert.Contains("examine",abrevs);
+            StringAssert.Contains("examine", commands.Inspect.getHelp());
+
+        }
+        }
     }
-}
