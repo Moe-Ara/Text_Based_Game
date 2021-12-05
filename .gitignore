@@ -33,3 +33,4 @@ PrimaryService.Test/obj/Debug/net5.0/PrimaryService.Test.csproj.AssemblyReferenc
 PrimaryService.Test/obj/Debug/net5.0/PrimaryService.Test.dll
 PrimaryService.Test/obj/Debug/net5.0/PrimaryService.Test.pdb
 .vscode/extensions.json
+PrimaryService.Test/bin/Debug/net5.0/nunit_random_seed.tmp
