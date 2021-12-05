@@ -4,7 +4,7 @@ using System.Collections.Generic;
 //* This class has only one public function and it is to be used to interpret the user's input
 namespace TextBasedGame{
     class InterpretCommand{
-        //*get the all the commands in the game
+        //* get the all the commands in the game
         private Commands GameCommands= new Commands();
        public String Interpreter(String str){
            //* check if the user has entered something
@@ -26,7 +26,7 @@ namespace TextBasedGame{
                 if (command !=null)
                     break;
             }
-            //*check if we haven't found the command
+            //* check if we haven't found the command
             if (command==null)
                 return "I couldn't understand you command, please type 'help' or 'h' for help";
             //! for now, if we found the command we return it's help statement, this will be changed later
