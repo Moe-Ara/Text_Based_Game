@@ -1,33 +1,60 @@
 ﻿using System;
-
 namespace TextBasedGame
 {
     class Program
     {
         static void Main(string[] args)
         {
-            GameName gameName= new GameName();
+            //* these are symbols that we want to get rid of from the user's input
+            String[] unusableSymboles = { ",", ".", "!", "?", ";", ":", "\'", "\"" };
+            //* To Print the Game Name in ascci
+            GameName gameName = new GameName();
+            //* clear the console at the start
             Console.Clear();
+            //* Printing the Game Name
             Console.WriteLine("\n\n");
             Console.WriteLine(gameName.getGameNameSpooky());
             Console.WriteLine("\n\n");
+            //* Welcome Player and determine their characteristics
             WelcomingPlayer welcomingPlayer = new WelcomingPlayer();
+            //* Create the player
             Player player = welcomingPlayer._player;
+            //* Initialize the map
             Map initMap = welcomingPlayer._getIntializedMap;
-            InterpretCommand interpretCommand= new InterpretCommand();
+            //* Initialize command interpreter
+            InterpretCommand interpretCommand = new InterpretCommand();
+            //* Custom Class to get the user input
             GetUserInput getUserInput = new GetUserInput();
-            Secrets secrets= new Secrets();
+            //* Easter eggs and secert messages
+            Secrets secrets = new Secrets();
+            //* Taking first command
             System.Console.WriteLine("Input your first command here");
-            String str=null;
-            while(true){
-                str=getUserInput.getUserInput().ToLower();
-                if (str.Equals("exit")||str.Equals("quit")||str.Equals("Bye")){
+            //* This will store the user's input later
+            String str = null;
+            //* Endless loop, until the user types 'bye' or 'quit'
+            while (true)
+            {
+                //* Take the user's input and convert to lower case
+                str = getUserInput.getUserInput().ToLower();
+                //* check if user entered nothing
+                if (str=="")
+                    continue;
+                //* delete all unusable symbols from the user's input
+                foreach (String x in unusableSymboles)
+                {
+                    if (str.Contains(x))
+                        str = str.Replace(x, "");
+                }
+                //* check if the user wants to quit the game
+                if (str.Contains("quit") || str.Contains("bye"))
+                {
                     break;
                 }
-            bool s=secrets.CheckForSecretInput(str, player);
-            if (s==true)
-                continue;
-            System.Console.WriteLine(interpretCommand.Interpreter(str));
+                //* Check for secret messages
+                bool s = secrets.CheckForSecretInput(str, player);
+                if (s == true)
+                    continue;
+                System.Console.WriteLine(interpretCommand.Interpreter(str));
             }
             System.Console.WriteLine("Goodbye brave adventurer, may we see each other in another life");
         }
