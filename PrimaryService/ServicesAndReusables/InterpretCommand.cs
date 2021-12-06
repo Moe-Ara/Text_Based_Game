@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace TextBasedGame{
     class InterpretCommand{
         //* get the all the commands in the game
-        private Commands GameCommands= new Commands();
+        
        public String Interpreter(String str){
            //* check if the user has entered something
            if (str==""){return "You have to enter a command, try 'help' or 'h'";}
@@ -15,7 +15,7 @@ namespace TextBasedGame{
             Command command=null;
             String result= null;
             //* check for every command in the game if the user's input contains it or contains any of its abbriviation
-            foreach (Command cmd in GameCommands.commands){
+            foreach (Command cmd in Program.GameCommands.commands){
                 foreach (string abr in cmd.getAbbreviation()){
                 if (strings.Contains(abr)){
                     command = cmd;
