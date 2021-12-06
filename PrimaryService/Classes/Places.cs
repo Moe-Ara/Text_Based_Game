@@ -48,6 +48,30 @@ namespace TextBasedGame
 
             this.itemsInPlace = new HashSet<Item>();
             this.ReachablePlaces = new HashSet<Place>();
+            
+            //* Setting up reachable places
+            if (hasDown())
+                setReachablePlaces(PlaceDown);
+            if (hasUp())
+                setReachablePlaces(PlaceUp);
+
+            if (hasEast())
+                setReachablePlaces(PlaceToEast);
+            if (hasWest())
+                setReachablePlaces(PlaceToWest);
+            if (hasNorth())
+                setReachablePlaces(PlaceToNorth);
+            if (hasSouth())
+                setReachablePlaces(PlaceToSouth);
+
+            if (hasNorthEast())
+                setReachablePlaces(PlaceToNorthEast);
+            if (hasNorthWest())
+                setReachablePlaces(PlaceToNorthWest);
+            if (hasSouthEast())
+                setReachablePlaces(PlaceToSouthEast);
+            if (hasSouthWest())
+                setReachablePlaces(PlaceToSouthWest);
         }
 
         //gets the name of the place
@@ -88,53 +112,57 @@ namespace TextBasedGame
         {
             return EventDescription;
         }
+        public void setEventDescription(String str)
+        {
+            EventDescription = str;
+        }
         public void setDescription(String desc)
         {
             this.Description = desc;
         }
         public bool hasNorth()
         {
-            return !(PlaceToNorth==null);
+            return !(PlaceToNorth == null);
         }
         public bool hasSouth()
         {
-            return !(PlaceToSouth==null);
+            return !(PlaceToSouth == null);
         }
         public bool hasEast()
         {
-            return !(PlaceToEast==null);
+            return !(PlaceToEast == null);
         }
         public bool hasWest()
         {
-            return !(PlaceToWest==null);
+            return !(PlaceToWest == null);
 
         }
 
         public bool hasNorthEast()
         {
-            return !(PlaceToNorthEast==null);
+            return !(PlaceToNorthEast == null);
         }
         public bool hasSouthEast()
         {
-            return !(PlaceToSouthEast==null);
+            return !(PlaceToSouthEast == null);
         }
         public bool hasNorthWest()
         {
-            return !(PlaceToNorthWest==null);
+            return !(PlaceToNorthWest == null);
         }
         public bool hasSouthWest()
         {
-            return !(PlaceToSouthWest==null);
+            return !(PlaceToSouthWest == null);
         }
 
 
         public bool hasUp()
         {
-            return !(PlaceUp==null);
+            return !(PlaceUp == null);
         }
         public bool hasDown()
         {
-            return !(PlaceDown==null);
+            return !(PlaceDown == null);
         }
         //prints out all Places that are reachable from this place
         public String getReachablePlaces()
@@ -190,9 +218,9 @@ namespace TextBasedGame
 
 
 
-        public Place _PlaceToNorthEast { get{return PlaceToNorthEast;} set{PlaceToNorthEast=value;} }
-        public Place _PlaceToSouthEast { get{return PlaceToSouthEast;} set{PlaceToSouthEast=value;} }
-        public Place _PlaceToSouthWest { get{return PlaceToSouthWest;} set{PlaceToSouthWest=value;} }
-        public Place _PlaceToNorthWest { get{return PlaceToNorthWest;} set{PlaceToNorthWest=value;} }
+        public Place _PlaceToNorthEast { get { return PlaceToNorthEast; } set { PlaceToNorthEast = value; } }
+        public Place _PlaceToSouthEast { get { return PlaceToSouthEast; } set { PlaceToSouthEast = value; } }
+        public Place _PlaceToSouthWest { get { return PlaceToSouthWest; } set { PlaceToSouthWest = value; } }
+        public Place _PlaceToNorthWest { get { return PlaceToNorthWest; } set { PlaceToNorthWest = value; } }
     }
 }
