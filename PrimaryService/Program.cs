@@ -16,6 +16,7 @@ namespace TextBasedGame
             Map initMap = welcomingPlayer._getIntializedMap;
             InterpretCommand interpretCommand= new InterpretCommand();
             GetUserInput getUserInput = new GetUserInput();
+            Secrets secrets= new Secrets();
             System.Console.WriteLine("Input your first command here");
             String str=null;
             while(true){
@@ -23,9 +24,12 @@ namespace TextBasedGame
                 if (str.Equals("exit")||str.Equals("quit")||str.Equals("Bye")){
                     break;
                 }
+            bool s=secrets.CheckForSecretInput(str, player);
+            if (s==true)
+                continue;
             System.Console.WriteLine(interpretCommand.Interpreter(str));
             }
-            System.Console.WriteLine("Goodbye brave adventurer, may we see eachother in another life");
+            System.Console.WriteLine("Goodbye brave adventurer, may we see each other in another life");
         }
     }
 }
