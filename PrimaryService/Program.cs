@@ -2,7 +2,11 @@
 namespace TextBasedGame
 {
     class Program
-    {
+    {            //* Creating a path to map the player's movement
+        public static Path playerPath = new Path();
+        public static Map InitializedMap = new Map();
+        public static Commands GameCommands = new Commands();
+        public static Inventory PlayersInventory = new Inventory();
         static void Main(string[] args)
         {
             //* these are symbols that we want to get rid of from the user's input
@@ -19,16 +23,16 @@ namespace TextBasedGame
             WelcomingPlayer welcomingPlayer = new WelcomingPlayer();
             //* Create the player
             Player player = welcomingPlayer._player;
-            //* Initialize the map
-            Map initMap = welcomingPlayer._getIntializedMap;
             //* Initialize command interpreter
             InterpretCommand interpretCommand = new InterpretCommand();
             //* Custom Class to get the user input
             GetUserInput getUserInput = new GetUserInput();
             //* Easter eggs and secert messages
             Secrets secrets = new Secrets();
-            //* Taking first command
-            System.Console.WriteLine("Input your first command here");
+            //* Setting up the first place on the map
+            playerPath.AddAtLast(player.getMycurrentPlace());
+            //* Describing the start point 
+            System.Console.WriteLine(playerPath.getLastPlace().getEventDescription());
             //* This will store the user's input later
             String str = null;
             //* Endless loop, until the user types 'bye' or 'quit'
@@ -37,7 +41,7 @@ namespace TextBasedGame
                 //* Take the user's input and convert to lower case
                 str = getUserInput.getUserInput().ToLower();
                 //* check if user entered nothing
-                if (str=="")
+                if (str == "")
                     continue;
                 //* delete all unusable symbols from the user's input
                 foreach (String x in unusableSymboles)
