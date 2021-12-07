@@ -3,6 +3,10 @@ PrimaryService/bin
 PrimaryService.Test/bin
 PrimaryService/obj
 PrimaryService.Test/obj
+PrimaryService/bin/*
+PrimaryService.Test/bin/*
+PrimaryService/obj/*
+PrimaryService.Test/obj/*
 PrimaryService/bin/Debug/net5.0/TextBasedGame.dll
 PrimaryService/bin/Debug/net5.0/TextBasedGame.pdb
 PrimaryService/bin/Debug/net5.0/ref/TextBasedGame.dll
