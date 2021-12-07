@@ -52,7 +52,6 @@ namespace TextBasedGame
                     Console.WriteLine("Sorry, We couldn't understand that");
                 }
             }
-            // //?Initializing Map
             //? Creating Player
             this._Player = new Player(UserName, "Female", "You Have the looks of young Woman, in her mid-twenties probably." +
            " Your short Black hair is tied in a practical knot on the back of your head. Your dark skin only brings the beauty of your green eyes.", Program.InitializedMap._Start,Program.PlayersInventory);
