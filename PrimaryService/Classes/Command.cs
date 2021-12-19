@@ -30,7 +30,7 @@ namespace TextBasedGame
             String Abbreviations = "";
             foreach (String x in Abbreviation){
                 Abbreviations+= x + "; ";
-                Abbreviations.Remove(Abbreviations.Length-1);
+               Abbreviations= Abbreviations.Remove(Abbreviations.Length-1);
             }
             return Abbreviations;
 

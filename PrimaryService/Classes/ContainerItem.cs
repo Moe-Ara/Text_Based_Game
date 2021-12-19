@@ -28,7 +28,7 @@ namespace TextBasedGame{
              String contents= " ";
              foreach (Item x in _Contents){
                  contents += x.getItemName() + "; ";
-                 contents.Remove(contents.Length-1);
+                contents= contents.Remove(contents.Length-1);
              }
              return contents;
 

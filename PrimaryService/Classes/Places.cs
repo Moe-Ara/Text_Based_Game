@@ -172,7 +172,7 @@ namespace TextBasedGame
             {
                 reachablePlaces += x.getPlaceName() + "\n";
                 //removes the last semicolon
-                reachablePlaces.Remove(reachablePlaces.Length - 1);
+                reachablePlaces=reachablePlaces.Remove(reachablePlaces.Length - 1);
             }
             return reachablePlaces;
         }

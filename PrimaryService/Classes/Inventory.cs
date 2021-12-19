@@ -20,7 +20,7 @@ namespace TextBasedGame
             {
                 items += x.getItemName() + "; ";
                 //removes the last semicolon
-                items.Remove(items.Length - 1);
+                items=items.Remove(items.Length - 1);
             }
             return items;
         }
