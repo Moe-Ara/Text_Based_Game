@@ -20,7 +20,7 @@ namespace TextBasedGame
         //default constructor
         public Path()
         {
-        } 
+        }
 
         public void AddAtLast(Place data)
         {
@@ -93,6 +93,11 @@ namespace TextBasedGame
                 curr = curr.next;
             }
             return curr.Data;
+        }
+        //get first place
+        public Place getFirstPlace()
+        {
+            return head.Data;
         }
         //gets how many nodes are there
         public int getCount()
