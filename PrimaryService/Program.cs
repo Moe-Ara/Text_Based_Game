@@ -7,6 +7,10 @@ namespace TextBasedGame
         public static Map InitializedMap = new Map();
         public static Commands GameCommands = new Commands();
         public static Inventory PlayersInventory = new Inventory();
+
+        //* Welcome Player and determine their characteristics
+        public static WelcomingPlayer InitiatingPlayer = new WelcomingPlayer();
+
         static void Main(string[] args)
         {
             //* these are symbols that we want to get rid of from the user's input
@@ -19,10 +23,8 @@ namespace TextBasedGame
             Console.WriteLine("\n\n");
             Console.WriteLine(gameName.getGameNameSpooky());
             Console.WriteLine("\n\n");
-            //* Welcome Player and determine their characteristics
-            WelcomingPlayer welcomingPlayer = new WelcomingPlayer();
             //* Create the player
-            Player player = welcomingPlayer._player;
+            Player player = InitiatingPlayer._player;
             //* Initialize command interpreter
             InterpretCommand interpretCommand = new InterpretCommand();
             //* Custom Class to get the user input
@@ -30,7 +32,7 @@ namespace TextBasedGame
             //* Easter eggs and secert messages
             Secrets secrets = new Secrets();
             //* Setting up the first place on the map
-            playerPath.AddAtLast(player.getMycurrentPlace());
+            playerPath.AddAtLast(player.getPlayerscurrentPlace());
             //* Describing the start point 
             System.Console.WriteLine(playerPath.getLastPlace().getEventDescription());
             //* This will store the user's input later
