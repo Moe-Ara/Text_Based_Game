@@ -9,8 +9,8 @@ namespace TextBasedGame
         private String name; //player's name
         private String sex; //player's sex
         private String Description; //player's Description (appearance)
-        private Place MyOldPlace; //to be able to go back
-        private Place MyCurrentPlace; //Player's current place
+        private Place PlayersOldPlace; //to be able to go back
+        private Place PlayersCurrentPlace; //Player's current place
         private Inventory inventory; //player's inventory
 
         public Player(String name, String sex, String Description, Place MyCurrentPlace, Inventory inventory)
@@ -18,34 +18,34 @@ namespace TextBasedGame
             this.name = name;
             this.sex = sex;
             this.Description = Description;
-            this.MyCurrentPlace = MyCurrentPlace;
+            this.PlayersCurrentPlace = MyCurrentPlace;
             this.inventory = inventory;
         }
         public String getName() { return name; } //getter for Player Name
         public String getSex() { return sex; }     //getter for Player's sex
 
         public String getDescription() { return Description; }  //getter for player's description
-        public Place getMycurrentPlace()    //getter to get the current place, where the player is in currently
+        public Place getPlayerscurrentPlace()    //getter to get the current place, where the player is in currently
         {
-            return MyCurrentPlace;
+            return PlayersCurrentPlace;
         }
-        public String getMycurrentPlaceName()   //get the current place name, this returns a string
+        public String getPlayerscurrentPlaceName()   //get the current place name, this returns a string
         {
-            return MyCurrentPlace.getPlaceName();
+            return PlayersCurrentPlace.getPlaceName();
         }
-        public void setMycurrentPlace(Place place) //set the current place of the player, this should be called everytime the player moves to a different place
+        public void setPlayerscurrentPlace(Place place) //set the current place of the player, this should be called everytime the player moves to a different place
         {
-            this.MyCurrentPlace = place;
+            this.PlayersCurrentPlace = place;
         }
 
 
         //inventory Processes 
-        public void addtoMyInventory(Item item)
+        public void addtoInventory(Item item)
         {
-            if (MyCurrentPlace.checkItemIsHere(item))
+            if (PlayersCurrentPlace.checkItemIsHere(item))
             {
                 inventory.addItem(item);
-                MyCurrentPlace.removeItemFromPlace(item);
+                PlayersCurrentPlace.removeItemFromPlace(item);
             }
             else
             {
@@ -54,21 +54,21 @@ namespace TextBasedGame
 
         }
 
-        public void removeFromMyInventory(Item item)
+        public void removeFromInventory(Item item)
         {
             if (inventory.itemIsInInvenory(item))
             {
-                MyCurrentPlace.addItemToPlace(item);
+                PlayersCurrentPlace.addItemToPlace(item);
                 inventory.removeItem(item);
             }
         }
 
-        public Place _MyOldPlace { get { return MyOldPlace; } set { MyOldPlace = value; } }
+        public Place _PlayersOldPlace { get { return PlayersOldPlace; } set { PlayersOldPlace = value; } }
         public String printMyInventory() //print every item in the inventory
         {
             return inventory.printInventory();
         }
-        public Inventory MyInventory { get{return inventory;} set{inventory=value;} }
+        public Inventory PlayersInventory { get{return inventory;} set{inventory=value;} }
 
 
     }
