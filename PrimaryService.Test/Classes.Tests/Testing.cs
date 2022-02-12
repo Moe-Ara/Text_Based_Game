@@ -24,7 +24,7 @@ namespace PrimaryService.Test
         {
             Assert.That(_player.getName(), Is.EqualTo("So3ad"));
             Assert.That(_player.getSex(), Is.EqualTo("Female"));
-            Assert.That(_player.getMycurrentPlaceName, Is.EqualTo(_place.getPlaceName()));
+            Assert.That(_player.getPlayerscurrentPlace, Is.EqualTo(_place.getPlaceName()));
 
         }
 
@@ -33,15 +33,15 @@ namespace PrimaryService.Test
         {
             Item _item = new Item("Sword", "", "","", true);
             StringAssert.Contains("Pocket Knife", _player.printMyInventory());
-            _player.MyInventory.addItem(_item);
+            _player.PlayersInventory.addItem(_item);
             StringAssert.Contains("Sword", _player.printMyInventory());
             //check if player drops item correctly and if it appears in current Place
-            _player.removeFromMyInventory(_item);
+            _player.removeFromInventory(_item);
             StringAssert.DoesNotContain("Sword", _player.printMyInventory());
-            Assert.IsTrue(_player.getMycurrentPlace().checkItemIsHere(_item));
+            Assert.IsTrue(_player.getPlayerscurrentPlace().checkItemIsHere(_item));
             //check if player picks up item correctly and if it disappears from current Place
-            _player.addtoMyInventory(_item);
-            Assert.IsFalse(_player.getMycurrentPlace().checkItemIsHere(_item));
+            _player.addtoInventory(_item);
+            Assert.IsFalse(_player.getPlayerscurrentPlace().checkItemIsHere(_item));
         }
 
         [Test]
