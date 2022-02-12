@@ -164,8 +164,12 @@ namespace TextBasedGame
         {
             return !(PlaceDown == null);
         }
+
+        public HashSet<Place> getReachablePlaces(){
+            return ReachablePlaces;
+        }
         //prints out all Places that are reachable from this place
-        public String getReachablePlaces()
+        public String printReachablePlaces()
         {
             String reachablePlaces = "";
             foreach (Place x in ReachablePlaces)
@@ -222,5 +226,7 @@ namespace TextBasedGame
         public Place _PlaceToSouthEast { get { return PlaceToSouthEast; } set { PlaceToSouthEast = value; } }
         public Place _PlaceToSouthWest { get { return PlaceToSouthWest; } set { PlaceToSouthWest = value; } }
         public Place _PlaceToNorthWest { get { return PlaceToNorthWest; } set { PlaceToNorthWest = value; } }
+        public Place _PlaceUp { get { return PlaceUp; } set { PlaceUp = value; } }
+        public Place _PlaceDown { get { return PlaceDown; } set { PlaceDown = value; } }
     }
 }
