@@ -8,10 +8,10 @@ namespace TextBasedGame
     * It has two extra attributes, AssetName and AssetDescription
     * When a new Asset is created, this class calls the constructor from  item and creates a new Item with AssetName and AssetDescription
     */
-    class Asset : Item{
+    class Asset : Box{
         private String AssetName;
         private String AssetDescription;
-        public Asset(String assetName, String assetDescription, String LongDescription=""): base(assetName, "", assetDescription,LongDescription,false){
+        public Asset(String assetName, String assetDescription, String LongDescription="", bool Pickable=false): base(assetName, assetDescription,LongDescription,false){
             this.AssetName= assetName;
             this.AssetDescription= assetDescription;
         }

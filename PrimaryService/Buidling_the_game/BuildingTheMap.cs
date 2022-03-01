@@ -25,11 +25,13 @@ namespace TextBasedGame
             //* Setting up the first place 'Start' which is the starting point; it is called "driveway"
             {
                 this.Start = new Place("Drive Way", null, null, this.FrontLawn, null, null, null);
-                this.Start.setEventDescription("You see a big house to your North-East, it looks renovated and unlike the other houses, it looks like it was built not long ago.\n"
+                this.Start.setDescription("You see a big house to your North-East, it looks renovated and unlike the other houses, it looks like it was built not long ago.\n"
             + "You look at your car and you feel sorry for that poor piece of garbage standing in the middle of a narrow road, emitting heat and some smoke from its front end.\n"
             + "There is a passage to the east that leads to the house.");
-                this.Start.setDescription($"It is really hard to see anything in this unsetteling darkness, However, {this.Start.getEventDescription()}");
+                this.Start.setEventDescription($"It is really hard to see anything in this unsetteling darkness, However, {this.Start.getDescription()}");
                 places.Add(this.Start);
+                Asset MailBox= new Asset("Mailbox","Description","LongDescription");
+                this.Start.addItemToPlace(MailBox);
             }
 
 

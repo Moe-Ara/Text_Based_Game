@@ -6,15 +6,17 @@ namespace TextBasedGame
 {
     class InterpretCommand
     {
-        private Command command = null;
-        private Item item = null;
-        private Place place = null;
+        private Command command;
+        private Item item;
+        private Place place;
         //* get the all the commands in the game
 
         public String Interpreter(String str)
         {
-            //* check if the user has entered something
-            if (str == "") { return "You have to enter a command, try 'help' or 'h'"; }
+            command =null;
+            item=null;
+            place=null;
+            
             //* if they did, we take their input and convert it to a hashset that contains every single word in their input
             HashSet<String> strings = new HashSet<string>(str.Split(" "));
             //initialize some helper variables
@@ -71,7 +73,7 @@ namespace TextBasedGame
                 //? specific place
                 if (place != null)
                 {
-                    result = "Where is that?";
+                    result = "Where is that? You might not have access to that place";
                     //? go to place
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().getReachablePlaces().Contains(place))
                     {
@@ -214,7 +216,7 @@ namespace TextBasedGame
 
 
             //! for now, if we found the command we return it's help statement, this will be changed later
-            result = command.getHelp();
+            //result = command.getHelp();
             return result;
         }
     }

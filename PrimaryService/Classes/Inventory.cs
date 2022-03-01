@@ -5,7 +5,7 @@ namespace TextBasedGame
 {
     public class Inventory
     {
-        private Place plyersPlace;
+        //private Place plyersPlace;
         protected HashSet<Item> inventory; //player's inventory
         public Inventory()
         {
