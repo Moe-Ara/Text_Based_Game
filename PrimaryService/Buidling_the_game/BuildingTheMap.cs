@@ -24,7 +24,7 @@ namespace TextBasedGame
         {
             //* Setting up the first place 'Start' which is the starting point; it is called "driveway"
             {
-                this.Start = new Place("Drive Way", null, null, this.FrontLawn, null, null, null);
+                this.Start = new Place("Drive Way", null, null, _FrontLawn, null, null, null);
                 this.Start.setDescription("You see a big house to your North-East, it looks renovated and unlike the other houses, it looks like it was built not long ago.\n"
             + "You look at your car and you feel sorry for that poor piece of garbage standing in the middle of a narrow road, emitting heat and some smoke from its front end.\n"
             + "There is a passage to the east that leads to the house.");
@@ -32,6 +32,22 @@ namespace TextBasedGame
                 places.Add(this.Start);
                 Asset MailBox= new Asset("Mailbox","Description","LongDescription");
                 this.Start.addItemToPlace(MailBox);
+            }
+            //* Setting up the frontlawn
+            {
+                this.FrontLawn= new Place("Front Lawn", House,null,null,_Start,"You are at frontlawn","now you are at front lawn",null,null,null,Shed,null,BackLawn);
+                places.Add(this.FrontLawn);
+                
+
+            }
+            
+            
+            
+            //* connecting map together
+            {
+                 this.Start._PlaceToEast=this.FrontLawn;
+                 this.FrontLawn._PlaceToNorth=this.House;
+
             }
 
 

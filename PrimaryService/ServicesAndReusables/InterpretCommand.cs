@@ -69,7 +69,7 @@ namespace TextBasedGame
             //* User wants to move using the 'Go' command
             if (command == Program.GameCommands.Go)
             {
-                result = "Where to ?";
+                result = "Where to ? If a place is specified please make sure you have access to it";
                 //? specific place
                 if (place != null)
                 {
@@ -78,7 +78,7 @@ namespace TextBasedGame
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().getReachablePlaces().Contains(place))
                     {
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(place);
-                        result = place.getEventDescription();
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                         Program.playerPath.AddAtLast(place);
                     }
                 }
@@ -88,8 +88,8 @@ namespace TextBasedGame
                 {
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasWest())
                     {
-                        Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace().getPlaceToWest());
-                        result = place.getEventDescription();
+                        Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToWest);
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ right
@@ -97,8 +97,8 @@ namespace TextBasedGame
                 {
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasEast())
                     {
-                        Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace().getPlaceToEast());
-                        result = place.getEventDescription();
+                        Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToEast);
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ north
@@ -106,8 +106,8 @@ namespace TextBasedGame
                 {
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasNorth())
                     {
-                        Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace().getPlaceToNorth());
-                        result = place.getEventDescription();
+                        Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToNorth);
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ south
@@ -115,8 +115,8 @@ namespace TextBasedGame
                 {
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasSouth())
                     {
-                        Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace().getPlaceToSouth());
-                        result = place.getEventDescription();
+                        Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToSouth);
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ northeast
@@ -125,7 +125,7 @@ namespace TextBasedGame
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasNorthEast())
                     {
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToNorthEast);
-                        result = place.getEventDescription();
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ northwest
@@ -134,7 +134,7 @@ namespace TextBasedGame
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasNorthWest())
                     {
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToNorthWest);
-                        result = place.getEventDescription();
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ southeast
@@ -143,7 +143,7 @@ namespace TextBasedGame
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasSouthEast())
                     {
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToSouthEast);
-                        result = place.getEventDescription();
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ southwest
@@ -152,7 +152,7 @@ namespace TextBasedGame
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasSouthWest())
                     {
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToSouthWest);
-                        result = place.getEventDescription();
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ back
@@ -162,7 +162,7 @@ namespace TextBasedGame
                     {
                         Program.playerPath.RemoveLast();
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.playerPath.getFirstPlace());
-                        result = place.getDescription();
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ up
@@ -171,7 +171,7 @@ namespace TextBasedGame
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasUp())
                     {
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceUp);
-                        result = place.getEventDescription();
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 //~ down
@@ -180,7 +180,7 @@ namespace TextBasedGame
                     if (Program.InitiatingPlayer._player.getPlayerscurrentPlace().hasDown())
                     {
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceDown);
-                        result = place.getEventDescription();
+                        result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
                 }
                 Program.playerPath.AddAtLast(Program.InitiatingPlayer._player.getPlayerscurrentPlace());
