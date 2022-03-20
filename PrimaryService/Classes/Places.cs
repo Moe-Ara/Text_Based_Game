@@ -23,10 +23,13 @@ namespace TextBasedGame
         private String EventDescription; //this is used for when want to set the scene; for example: "You enter a Shed that is $Description", "You see a house with ... $Description"
         protected HashSet<Item> itemsInPlace; //items that are present in the place, these can be assets as well; eg: car,grass,rock
         protected HashSet<Place> ReachablePlaces;// Places that are reachable from this place
-        public Place(String PlaceName, Place PlaceToNorth, Place PlaceToSouth, Place PlaceToEast,
-        Place PlaceToWest, String Description,
-        String EventDescription, Place PlaceUp = null, Place PlaceDown = null,
-        Place PlaceToNorthEast = null, Place PlaceToSouthEast = null, Place PlaceToSouthWest = null, Place PlaceToNorthWest = null)
+        public Place(
+            String PlaceName, Place PlaceToNorth, Place PlaceToSouth, Place PlaceToEast,
+            Place PlaceToWest, String Description,
+            String EventDescription, Place PlaceUp = null, Place PlaceDown = null,
+            Place PlaceToNorthEast = null, Place PlaceToSouthEast = null,
+            Place PlaceToSouthWest = null, Place PlaceToNorthWest = null
+            )
         {
             this.PlaceName = PlaceName;
 
@@ -80,27 +83,27 @@ namespace TextBasedGame
             return PlaceName;
         }
         //gets the name of the place to north
-        public Place getPlaceToNorth()
+        public Place _PlaceToNorth
         {
-            return PlaceToNorth;
+           get { return PlaceToNorth; } set { PlaceToNorth = value; }
         }
         //gets the name of the place to south
-        public Place getPlaceToSouth()
+        public Place _PlaceToSouth
         {
-            return PlaceToSouth;
+            get { return PlaceToSouth; } set { PlaceToSouth = value; }
         }
         //gets the name of the place to east
 
-        public Place getPlaceToEast()
+        public Place _PlaceToEast
         {
-            return PlaceToEast;
+            get { return PlaceToEast; } set { PlaceToEast = value; }
         }
 
         //gets the name of the place to west
 
-        public Place getPlaceToWest()
+        public Place _PlaceToWest
         {
-            return PlaceToWest;
+            get { return PlaceToWest; } set { PlaceToWest = value; }
         }
         //gets description of a place
         public String getDescription()

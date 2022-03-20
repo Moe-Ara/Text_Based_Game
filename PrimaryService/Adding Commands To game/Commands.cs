@@ -20,6 +20,7 @@ namespace TextBasedGame
         protected Command _Burn;
         protected Command _Break;
         protected Command _Use;
+        protected Command _Open;
         //protected Command _Help;
         //private Dictionary<Command, String[]> _Abbrevs;
         private List<Command> _Commands; //List of all commands 
@@ -117,6 +118,12 @@ namespace TextBasedGame
                 _Use.setHelp("This command has no abbreviations");
                 //_Abbrevs.Add(_Look,lookAbrevs);
                 _Commands.Add(_Use);
+            }
+
+            //Open Command
+            {
+                String[] openAbrevs={""};
+                _Open = new Command("Open", openAbrevs,"help");
             }
 
             // //Help Command

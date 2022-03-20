@@ -18,7 +18,7 @@ namespace TextBasedGame
             //* To Print the Game Name in ascci
             GameName gameName = new GameName();
             //* clear the console at the start
-            Console.Clear();
+           // Console.Clear();
             //* Printing the Game Name
             Console.WriteLine("\n\n");
             Console.WriteLine(gameName.getGameNameSpooky());
@@ -43,8 +43,8 @@ namespace TextBasedGame
                 //* Take the user's input and convert to lower case
                 str = getUserInput.getUserInput().ToLower();
                 //* check if user entered nothing
-                if (str == "")
-                    continue;
+             //* check if the user has entered something
+            if (str == "") { System.Console.WriteLine("You have to enter a command, try 'help' or 'h'");continue; }
                 //* delete all unusable symbols from the user's input
                 foreach (String x in unusableSymboles)
                 {
@@ -60,7 +60,9 @@ namespace TextBasedGame
                 bool s = secrets.CheckForSecretInput(str, player);
                 if (s == true)
                     continue;
-                System.Console.WriteLine(interpretCommand.Interpreter(str));
+
+                String Answer=interpretCommand.Interpreter(str);
+                System.Console.WriteLine(Answer);
             }
             System.Console.WriteLine("Goodbye brave adventurer, may we see each other in another life");
         }
