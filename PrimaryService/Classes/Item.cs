@@ -9,6 +9,8 @@ namespace TextBasedGame
         private String shortDescription; //description of the item
         private String specificDescription;
         private bool isPickable; //if the item is pickable; in case it is an asset, it is not
+        private bool isOpened;
+
         public Item(String itemName, String colour = "", String shortDescription = "", String specificDescription="", bool isPickable = true)
         {
             this.itemName = itemName;
@@ -52,7 +54,16 @@ namespace TextBasedGame
         {
             return !(specificDescription.Equals(""));
         }
+        public bool getIsOpened(){return isOpened;}
+        public void setIsOpened(bool opened){isOpened=opened;}
 
         public String LongDescription { get{return specificDescription;} set{specificDescription=value;} }
+        
+        public String use(){
+            return "";
+        }
+        public String use(Item asset){
+            return "";
+        }
     }
 }
