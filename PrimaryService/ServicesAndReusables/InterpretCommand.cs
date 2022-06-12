@@ -44,7 +44,7 @@ namespace TextBasedGame
             //* Show Inventory
             if(strings.Contains("inventory") && !(strings.Contains("from")||strings.Contains("to"))){
                 result= Program.InitiatingPlayer._player.printMyInventory();
-            }
+            }else
 
             //* Check if the user asks for help
             if (strings.Contains("help") || strings.Contains("h"))
@@ -64,7 +64,8 @@ namespace TextBasedGame
                 {
                     result = command.getHelp();
                 }
-            }
+
+            }else
 
             //* User wants to move using the 'Go' command
             if (command == Program.GameCommands.Go)
@@ -91,7 +92,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToWest);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ right
                 if (strings.Contains("right") || strings.Contains("east") || strings.Contains("e"))
                 {
@@ -100,7 +101,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToEast);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ north
                 if (strings.Contains("forward") || strings.Contains("north") || strings.Contains("n"))
                 {
@@ -109,7 +110,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToNorth);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ south
                 if (strings.Contains("south") || strings.Contains("s"))
                 {
@@ -118,7 +119,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToSouth);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ northeast
                 if (strings.Contains("northeast") || strings.Contains("ne"))
                 {
@@ -127,7 +128,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToNorthEast);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ northwest
                 if (strings.Contains("northwest") || strings.Contains("nw"))
                 {
@@ -136,7 +137,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToNorthWest);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ southeast
                 if (strings.Contains("southeast") || strings.Contains("se"))
                 {
@@ -145,7 +146,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToSouthEast);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ southwest
                 if (strings.Contains("southwest") || strings.Contains("sw"))
                 {
@@ -154,7 +155,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceToSouthWest);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ back
                 if (strings.Contains("back"))
                 {
@@ -164,7 +165,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.playerPath.getFirstPlace());
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ up
                 if (strings.Contains("up"))
                 {
@@ -173,7 +174,7 @@ namespace TextBasedGame
                         Program.InitiatingPlayer._player.setPlayerscurrentPlace(Program.InitiatingPlayer._player.getPlayerscurrentPlace()._PlaceUp);
                         result = Program.InitiatingPlayer._player.getPlayerscurrentPlace().getEventDescription();
                     }
-                }
+                }else
                 //~ down
                 if (strings.Contains("down"))
                 {
@@ -184,7 +185,7 @@ namespace TextBasedGame
                     }
                 }
                 Program.playerPath.AddAtLast(Program.InitiatingPlayer._player.getPlayerscurrentPlace());
-            }
+            }else
 
             //* Users wants to use "Look" command
             if (command == Program.GameCommands.Look)
@@ -195,13 +196,15 @@ namespace TextBasedGame
                 if (item != null && !(strings.Contains("around")))
                 {
                     result = item.getDescription();
-                }
+                   
+                }else
                 if (place != null && !(strings.Contains("around")))
                 {
                     result = place.getDescription();
+                    
                 }
 
-            }
+            }else
 
             //* Users wants to use "Inspect" command
             if (command == Program.GameCommands.Inspect)
@@ -212,7 +215,37 @@ namespace TextBasedGame
                 {
                     result = item.getDescription();
                 }
-            }
+            }else
+            //* User wants to take item
+            if (command==Program.GameCommands.Take){
+                result="What do you want to take";
+                //? Take Item
+                if(item !=null){
+                    Program.InitiatingPlayer._player.addtoInventory(item);
+                    result=$"{item} Taken";
+                }
+            }else
+            //* User want to drop item
+            if (command==Program.GameCommands.Drop){
+                result="You don't have such an item";
+                if(item!=null){
+                Program.InitiatingPlayer._player.removeFromInventory(item);
+                result=$"{item} Dropped";}
+            }else
+            //* User wants to use An item
+                if (command==Program.GameCommands.Use){
+                    result="maybe you can't use that";
+                    if(item!=null){
+                        item.use();
+                    }
+                }else
+                if(command==Program.GameCommands.Open){
+                    result="You can't do that";
+                    //TODO:check if item is a container item or a door
+                    if (item!=null){
+                        item.setIsOpened(true);
+                    }
+                }
 
 
             //! for now, if we found the command we return it's help statement, this will be changed later
