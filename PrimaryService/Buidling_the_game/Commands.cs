@@ -145,6 +145,7 @@ namespace TextBasedGame
         public Command Burn {get{return _Burn;} set{_Burn=value;}}
         public Command Break {get{return _Break;} set{_Break=value;}}
         public Command Use {get{return _Use;} set{_Use=value;}}
+        public Command Open {get{return _Open;} set {_Open=value;}}
         //public Command Help {get{return _Help;} set{_Help=value;}}
 
         // public Dictionary<Command, String[]> Abbreviations {get{return _Abbrevs;} set{_Abbrevs=value;}}
