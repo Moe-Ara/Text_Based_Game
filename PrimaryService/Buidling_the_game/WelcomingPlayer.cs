@@ -10,7 +10,7 @@ namespace TextBasedGame
                 + " We hope that you are ready and as excited as we are to try it out"
                 + "\nThis game is biggner-friendly so don't worry if it's your first time (that's what she said ;p) "
                 + "you can always type help to get help ;). Good Luck\n" +
-        "This Game is dedicated to my Friends who have always supported me, Unborn Children who have been my biggest source of motivation and to my Mother who always believes in me, even when I don't" +
+        "This Game is dedicated to my Friends who have always supported me, Ann and El who have been my biggest source of motivation and to my Mother who always believes in me, even when I don't" +
         "\n══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════ \n" +
         "But, enough about me for now;\nTell us about yourself Player";
 
