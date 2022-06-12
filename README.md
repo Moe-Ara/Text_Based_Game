@@ -6,7 +6,7 @@ This is Just a Personal Project that is being developed for the purpose of learn
 # ScreenShots
 **When You Run the Game**
 
-<img src="Pics\Welcoming Screen.png"></img>
+<img src="Pics\Welcoming Screen.jpg"></img>
 
 # How to run the game
 
